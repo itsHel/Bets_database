@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel=icon href="imgs/ico.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        <script src="source/main.js"></script>
+        <script src="source/graph.js"></script>
+        <script src="source/autocomplete/jquery.autocomplete.js"></script>
+        <link rel=stylesheet href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel=stylesheet href="source/style.css">
+    <title>Bets Database</title>
+    </head>
+    
+    <body>
+        <div class=wrapper><div class=graph></div></div>
+        <div class=wrapper><div class=confirmation_panel>
+            <span class=close>X</span><h3>Are you sure?</h3>
+            <div><button id=delete_button>Delete</button><button id=cancel>Cancel</button></div>
+        </div></div>
+        <nav>
+            <ul>
+                <li>Add</li>
+                <li>Search</li>
+                <li>Refresh</li>
+                <li class=shortcuts>
+                    Shortcuts
+                    <ul>
+                        <li>Space - refresh</li>
+                        <li>Home - add</li>
+                    </ul>
+                </li>
+                <li class=sites>
+                    Sites
+                    <ul></ul>
+                </li>
+            </ul>
+            <ul>
+                <li>Limit: <span id=limit></span></li>
+            </ul>
+        </nav>
+        <div class=loading><img src="imgs/loading.gif"></div>
+        <div class=full>
+            <div class=form>
+                <input id=type onblur="mytype(this)" type=text placeholder="Value bet">
+                <input id=bet placeholder=Bet>
+                <input id=rate placeholder=Rate>
+                <input id=site placeholder=Site>
+                <input id=result placeholder=Result W/L>
+                <input id=note placeholder=Note>
+                
+                <img id=check src="imgs/check.png">
+            </div>
+            <div class=buttons>
+                <div>
+                    <button id=set onclick=add_bet()>Add</button>
+                    <button id=clear_0 onclick='myclear(0)'>Clear</button>
+                </div>
+            </div>
+            
+            <div class=form>
+                <input id=search_type onblur="mytype(this)" placeholder=Type>
+                <input id=search_bet placeholder="Bet     <, >, -">
+                <input id=search_rate placeholder="Rate     <, >, -">
+                <input id=search_site placeholder=Site>
+                <input id=search_date placeholder=Date>
+                <input id=search_note placeholder=Note>
+            </div>
+            <div class=buttons>
+                <div>
+                    <button id=search onclick='search("result")'>Search</button>
+                    <button id=clear onclick='myclear(1)'>Clear</button>
+                </div>
+                <div>
+                    <button id=today>Today</button>
+                    <button id=yesterday>Yesterday</button>
+                </div>
+            </div>
+            
+            <div class=overstats>
+                <div>net</div>
+                <div>winrate</div>
+                <div>in play</div>
+                <div>count</div>
+                <div>ROI</div>
+                <div>avg rate</div>
+                <div>graph</div>
+            </div>
+            <div class=stats>
+                <div id=net></div>
+                <div id=winrate></div>
+                <div id=in_play></div>
+                <div id=count></div>
+                <div id=ROI></div>
+                <div id=avg_rate></div>
+                <div id=graph>show</div>
+            </div>
+            
+           <div class=table>
+                
+            </div>
+            
+        </div>
+    </body>
+</html>
